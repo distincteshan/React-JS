@@ -8,12 +8,12 @@ import Menu from "./components/Menu";
 
 export default function Pizza(props) {
   return (
-    <div className="pizza">
+    <div className={props.soldOut ? "pizza sold-out" : "pizza"}>
       <img src={props.image} alt={props.name} />
       <div>
         <h1>{props.name}</h1>
         <p>{props.ingredients}</p>
-        <span>Price: ${props.price}</span>
+        <span>{props.soldOut ? "SOLD OUT!" : `Price: ${props.price}`}</span>
       </div>
     </div>
   );

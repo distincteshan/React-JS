@@ -2,20 +2,35 @@ import React from "react";
 import Pizza from "..";
 
 const Menu = () => {
+  const pizzasList = pizzaData;
+  const pizzas = pizzasList.length;
+
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <ul className="pizzas">
-        {pizzaData.map((pizza) => (
-          <Pizza
-            name={pizza.name}
-            image={pizza.photoName}
-            ingredients={pizza.ingredients}
-            price={pizza.price}
-            key={pizza.name}
-          />
-        ))}
-      </ul>
+
+      {pizzas > 0 ? (
+        <>
+          <p>
+            Authentic Italian cuisine, 6 creative dishes to choose from. All
+            from our stone oven, all organic, all delicious.
+          </p>
+          <ul className="pizzas ">
+            {pizzaData.map((pizza) => (
+              <Pizza
+                name={pizza.name}
+                image={pizza.photoName}
+                ingredients={pizza.ingredients}
+                price={pizza.price}
+                key={pizza.name}
+                soldOut={pizza.soldOut}
+              />
+            ))}
+          </ul>
+        </>
+      ) : (
+        <p>We are still working on our menu. Please come back later!</p>
+      )}
     </main>
   );
 };
