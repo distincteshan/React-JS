@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.container {
+  display: flex;
+  font-size: x-large;
+  flex-direction: column;
+}
+.steps {
+  display: flex;
+  justify-content: center;
+}
+.date {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.count {
+  display: flex;
+  justify-content: center;
+}
