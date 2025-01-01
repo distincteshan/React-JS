@@ -1,16 +1,19 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
-const Items = () => {
+const Items = ({ onAddItems }) => {
+  const [description, setDescription] = useState("");
+  const [quantity, setQuantity] = useState(1);
+
   function onSubmit(e) {
     e.preventDefault();
     if (!description) return;
     const newItem = { description, quantity, id: Date.now(), packed: false };
-    console.log(newItem);
+    onAddItems(newItem);
     setDescription("");
     setQuantity(1);
   }
-  const [description, setDescription] = useState("");
-  const [quantity, setQuantity] = useState(1);
+
   return (
     <form className="add-form" onSubmit={onSubmit}>
       <h3>What do you need for your 😍 trip?</h3>
