@@ -1,0 +1,28 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.bill {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bill input {
+  margin-left: 10px;
+  height: 20px;
+  font-size: larger;
+}
+
+.tip {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tip select {
+  margin-left: 10px;
+  height: 20px;
+  font-size: larger;
+}
