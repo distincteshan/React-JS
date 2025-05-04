@@ -1,5 +1,5 @@
-/* eslint-disable no-unused-vars */
-import React from "react";
+//  eslint-disable no-unused-vars
+import React, { useState } from "react";
 import AddFriend from "./components/AddFriend";
 import SplitBill from "./components/SplitBill";
 import FriendsList from "./components/Friends";
@@ -27,14 +27,29 @@ const initialFriends = [
 ];
 
 const App = () => {
+  const [friendsList, setFriendsList] = useState(initialFriends);
+  const [selectedFriend, setSelectedFriend] = useState(null);
+
+  function handleSelected(curr) {
+    setSelectedFriend((currFriend) =>
+      currFriend.id === curr.id ? null : curr
+    );
+  }
+
+  function handleAddFriend(friend) {
+    setFriendsList((friendsList) => [...friendsList, friend]);
+  }
   return (
     <div className="app">
       <div className="sidebar">
-        <FriendsList friends={initialFriends} />
-        <AddFriend />
-        <Submit>Add Friend</Submit>
+        <FriendsList
+          friends={friendsList}
+          onHandleSelected={handleSelected}
+          selectedFriend={selectedFriend}
+        />
+        <AddFriend handleAddFriends={handleAddFriend} />
       </div>
-      <SplitBill currFriend={initialFriends[0]} />
+      {selectedFriend && <SplitBill currFriend={selectedFriend} />}
     </div>
   );
 };

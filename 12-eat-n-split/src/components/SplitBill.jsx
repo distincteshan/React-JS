@@ -9,9 +9,12 @@ const SplitBill = ({ currFriend }) => {
       <label>🧘‍♂️ Your expense</label>
       <input type="text"></input>
       <label>🧑‍🤝‍🧑 {currFriend.name}'s Expense</label>
-      <input type="text"></input>
+      <input type="text" disabled></input>
       <label>🤑 Who is paying the bill?</label>
-      <input type="dropdown"></input>
+      <select>
+        <option value="user">You</option>
+        <option value="friend">{currFriend.name}</option>
+      </select>
       <Submit>Split bill</Submit>
     </form>
   );

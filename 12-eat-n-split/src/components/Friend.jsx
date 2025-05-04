@@ -1,8 +1,9 @@
 import Submit from "./Submit";
 
-const Friend = ({ currFriend }) => {
+const Friend = ({ currFriend, onHandleSelected, selectedFriend }) => {
+  let isSelected = currFriend.id === selectedFriend?.id;
   return (
-    <li>
+    <li className={isSelected ? "selected" : ""}>
       <img src={currFriend.image} alt={currFriend.name}></img>
       <h3>{currFriend.name}</h3>
       {currFriend.balance > 0 && (
@@ -16,7 +17,9 @@ const Friend = ({ currFriend }) => {
         </p>
       )}
       {currFriend.balance == 0 && <p>You and {currFriend.name} are even</p>}
-      <Submit>Select</Submit>
+      <Submit handleOnClick={() => onHandleSelected(currFriend)}>
+        {isSelected ? "Close" : "Select"}
+      </Submit>
     </li>
   );
 };
